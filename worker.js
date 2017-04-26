@@ -40,16 +40,16 @@ module.exports = {
       // or a fn(context, done(err, didrun))
 
       //string style
-      environment: `echo "${config.environment}"`,
+      environment: `echo "${config.template.environment}"`,
       //object style
       prepare: {
         command: 'echo',
-        args: [`"${config.prepare}"`]
+        args: [`"${config.template.prepare}"`]
       },
       //function style (calling done is a MUST)
       test: function (context, done) {
         //this will show up in the terminal log as 'info'
-        debug(config.test);
+        debug(config.template.test);
 
         //demonstration of how to perform async tasks, finishing with a call to done()
         checkSomething(context, function (shouldDoThings) {
@@ -66,8 +66,8 @@ module.exports = {
           });
         });
       },
-      deploy: `echo "${config.deploy}"`,
-      cleanup: `echo "${config.cleanup}"`
+      deploy: `echo "${config.template.deploy}"`,
+      cleanup: `echo "${config.template.cleanup}"`
     });
   },
   // this is only used if there is _no_ plugin configuration for a
