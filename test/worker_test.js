@@ -49,8 +49,10 @@ describe('template worker test example', function () {
     };
     process.env.strider_server_name = 'http://example.com';
     config = {
-      environment: 'test message',
-      prepare: 'test message'
+      template: {
+        environment: 'test message',
+        prepare: 'test message'
+      }
     };
     //_.each(schema, function(v,k) { config[k] = v.default });
     //config.token = 'token';
